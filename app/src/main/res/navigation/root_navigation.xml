@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_navigation"
+    app:startDestination="@id/login">
+
+    <fragment
+        android:id="@+id/login"
+        android:name="com.example.learning.fragments.login.Login"
+        android:label="login_fragment"
+        tools:layout="@layout/login_fragment" >
+        <action
+            android:id="@+id/action_login_to_submittOTP"
+            app:destination="@id/submittOTP"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:popUpTo="@id/login"
+
+            app:exitAnim="@android:anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/submittOTP"
+        android:name="com.example.learning.fragments.submittOTP.SubmittOTP"
+        android:label="submitt_otp_fragment"
+        tools:layout="@layout/submitt_otp_fragment" >
+        <action
+            android:id="@+id/action_submittOTP_to_login"
+            app:destination="@id/login" />
+        <argument
+            android:name="mobileNumber"
+            app:argType="string" />
+    </fragment>
+</navigation>
